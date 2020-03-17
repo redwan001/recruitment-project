@@ -15,7 +15,7 @@ public class NormalBall : MonoBehaviour
     public ParticleSystem fireworksAll;
     [HideInInspector]
     public bool playParticle;
-    //[HideInInspector]
+    [HideInInspector]
     public bool ballThrown, ballReachedTop;
     public GameObject objectToActivate;
     [Header("Sounds")]
