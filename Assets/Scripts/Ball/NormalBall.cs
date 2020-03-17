@@ -53,7 +53,7 @@ public class NormalBall : MonoBehaviour
    
         Debug.Log(missCount+ "missed");
         TimeBombZ();
-        RotateVel();
+
 
        if(missCount < 0)
         {
@@ -82,7 +82,8 @@ public class NormalBall : MonoBehaviour
         {
               
             ballThrown = true;
-            rb.AddForce(-direction.normalized * 32.5f, ForceMode2D.Impulse);   
+            rb.AddForce(-direction.normalized * 32.5f, ForceMode2D.Impulse);
+            RotateVel();
             sprite.sortingOrder = 3;
             throwCount++;
             Instantiate(swingSound, transform.position, Quaternion.identity);

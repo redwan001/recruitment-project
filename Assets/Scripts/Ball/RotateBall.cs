@@ -7,8 +7,8 @@ public class RotateBall : NormalBall
   
    protected override void RotateVel()
     {
-        transform.Rotate(Vector3.forward);
+       GetComponent<Rigidbody2D>().AddTorque(100);
 
     }
-
+ 
 }
