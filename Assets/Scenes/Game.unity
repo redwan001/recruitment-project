@@ -1380,7 +1380,6 @@ MonoBehaviour:
   ring1: {fileID: 1404490637}
   ring2: {fileID: 1404490636}
   box1: {fileID: 145989367}
-  normalBall: {fileID: 402628961}
 --- !u!61 &786270580
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2685,7 +2684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9037c9e57d51ad449c6cf0b9eef6c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedWeapon: 0
+  selectedBall: 0
 --- !u!4 &2117114176
 Transform:
   m_ObjectHideFlags: 0

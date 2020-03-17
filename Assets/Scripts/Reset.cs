@@ -7,7 +7,7 @@ public class Reset : MonoBehaviour
 
     public CircleCollider2D ring1, ring2;
     public BoxCollider2D box1;
-    public NormalBall normalBall;
+    private NormalBall normalBall;
 
     void Start()
     {
@@ -29,6 +29,7 @@ public class Reset : MonoBehaviour
             ring2.enabled = false;
             box1.enabled = false;
 
+            normalBall = collision.gameObject.GetComponent<NormalBall>();
 
             print("Ball Received " + normalBall.ballReachedTop);
 

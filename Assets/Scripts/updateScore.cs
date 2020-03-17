@@ -27,5 +27,10 @@ public class updateScore : MonoBehaviour
         highScore1 = data.highScore;
     }
 
+    public void share()
+    {
 
+        new NativeShare().SetText("http://google.com").Share();
+
+    }
 }

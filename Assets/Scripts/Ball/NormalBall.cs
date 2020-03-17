@@ -14,9 +14,11 @@ public class NormalBall : MonoBehaviour
     public ParticleSystem fireworksAll;
     [HideInInspector]
     public bool playParticle;
-    [HideInInspector]
+    //[HideInInspector]
     public bool ballThrown, ballReachedTop;
     public GameObject objectToActivate;
+    [Header("Sounds")]
+    public GameObject swingSound, scoreSound;
 
     private Rigidbody2D rb;
     private Quaternion originalRotationValue;
@@ -25,10 +27,6 @@ public class NormalBall : MonoBehaviour
 
     Vector2 startPos, endPos, direction;
 
-    [Header("Sounds")]
-    public GameObject swingSound , scoreSound;
-
-    // score text 
 
     void Awake()
     {
@@ -128,12 +126,11 @@ public class NormalBall : MonoBehaviour
 
     public virtual void ResetAll()
     {
-        StartCoroutine(ResetUtil());
+        Invoke("ResetUtil", 1.5f);
     }
 
-    IEnumerator ResetUtil()
+    public void ResetUtil()
     {
-        yield return new WaitForSeconds(1.8f);
 
         rb.isKinematic = true;
         rb.velocity = Vector2.zero;
@@ -145,8 +142,6 @@ public class NormalBall : MonoBehaviour
         ballThrown = false;
         ballReachedTop = false;
         missCount = throwCount - hitCount;
-    
-
     }
 
     protected virtual void RotateVel()

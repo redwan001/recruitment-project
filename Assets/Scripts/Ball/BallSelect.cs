@@ -4,51 +4,58 @@ using UnityEngine;
 
 public class BallSelect : MonoBehaviour
 {
-    public int selectedWeapon = 0;
+    public int selectedBall= 0;
 
     void Start()
     {
-        SelectedWeapon();
+        if (PlayerPrefs.HasKey("Ball"))
+            selectedBall = PlayerPrefs.GetInt("Ball", 0);
+        SelectedBall();
     }
 
     public void character1()
     {
 
-        selectedWeapon = 0;
+        selectedBall = 0;
 
     }
 
     public void character2()
     {
        if (transform.childCount >= 2)
-            selectedWeapon = 1;
-        SelectedWeapon();
+            selectedBall = 1;
+
+        PlayerPrefs.SetInt("Ball", 1);
+        SelectedBall();
 
     }
     public void character3()
     {
       if (transform.childCount >= 3)
-            selectedWeapon = 2;
-        SelectedWeapon();
+            selectedBall = 2;
+
+        PlayerPrefs.SetInt("Ball", 2);
+        SelectedBall();
     }
 
     public void character4()
     {
        if (transform.childCount >= 4)
-            selectedWeapon = 3;
+            selectedBall = 3;
 
-        SelectedWeapon();
+        PlayerPrefs.SetInt("Ball", 3);
+        SelectedBall();
     }
-    void SelectedWeapon()
+    void SelectedBall()
     {
 
         int i = 0;
-        foreach (Transform weapon in transform)
+        foreach (Transform ball in transform)
         {
-            if (i == selectedWeapon)
-                weapon.gameObject.SetActive(true);
+            if (i == selectedBall)
+               ball.gameObject.SetActive(true);
             else
-                weapon.gameObject.SetActive(false);
+                ball.gameObject.SetActive(false);
             i++;
 
 
