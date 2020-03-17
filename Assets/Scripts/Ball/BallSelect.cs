@@ -9,21 +9,22 @@ public class BallSelect : MonoBehaviour
     void Start()
     {
         if (PlayerPrefs.HasKey("Ball"))
-            selectedBall = PlayerPrefs.GetInt("Ball", 0);
+        selectedBall = PlayerPrefs.GetInt("Ball", 0);
         SelectedBall();
     }
 
     public void character1()
     {
-
+        if (transform.childCount >= 1)
         selectedBall = 0;
-
+        PlayerPrefs.SetInt("Ball", 0);
+        SelectedBall();
     }
 
     public void character2()
     {
        if (transform.childCount >= 2)
-            selectedBall = 1;
+        selectedBall = 1;
 
         PlayerPrefs.SetInt("Ball", 1);
         SelectedBall();

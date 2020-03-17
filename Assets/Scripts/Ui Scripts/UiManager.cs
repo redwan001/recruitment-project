@@ -18,7 +18,7 @@ public class UiManager : MonoBehaviour
       
             scoreText.text = ScoreManager.Instance.score.ToString();
             bestScoreText.text = ScoreManager.Instance.highScore.ToString();
-            missCount.text = box.missCount.ToString();
+            missCount.text = ScoreManager.Instance.missing.ToString();
         
     }
 

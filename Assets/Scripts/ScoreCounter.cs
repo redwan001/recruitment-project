@@ -21,6 +21,7 @@ public class ScoreCounter : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<NormalBall>().hitCount++;
+            Debug.Log(collision.gameObject.GetComponent<NormalBall>().hitCount);
         }
     }
 }

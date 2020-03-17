@@ -36,8 +36,6 @@ public class Reset : MonoBehaviour
             if(normalBall.ballReachedTop)
             {
                 normalBall.ResetAll();
-
-
                 print("Ball is back");
             }
         }

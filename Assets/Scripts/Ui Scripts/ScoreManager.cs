@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
-    public int score , highScore ;
+    public int score , highScore , missing;
  
    
     void Start()
@@ -44,6 +44,12 @@ public class ScoreManager : MonoBehaviour
         {
             highScore = score;
         }
+    }
+
+    public void missed()
+    {
+       int missNumber = FindObjectOfType<NormalBall>().throwCount - FindObjectOfType<NormalBall>().hitCount;
+        missing = missNumber;
     }
 
 

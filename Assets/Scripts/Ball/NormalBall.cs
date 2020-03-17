@@ -8,7 +8,8 @@ public class NormalBall : MonoBehaviour
   
     public static NormalBall main;
     [HideInInspector]
-    public int throwCount, hitCount, missCount;
+    public int throwCount, hitCount;
+    public static int missCount;
     public float detonationTime = 5;
     public ParticleSystem fireworks;
     public ParticleSystem fireworksAll;
@@ -49,6 +50,8 @@ public class NormalBall : MonoBehaviour
     }
     private void Update()
     {
+   
+        Debug.Log(missCount+ "missed");
         TimeBombZ();
         RotateVel();
 
@@ -59,7 +62,7 @@ public class NormalBall : MonoBehaviour
     }
 
 
-    protected virtual void Throw()
+    public void Throw()
     {
         if (Input.touchCount == 1   && Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -97,7 +100,7 @@ public class NormalBall : MonoBehaviour
             ScoreManager.Instance.AddScore(1);
             Instantiate(scoreSound, transform.position, Quaternion.identity); 
             detonationTime = 5;
-                  
+              
         }
 
        
@@ -131,7 +134,7 @@ public class NormalBall : MonoBehaviour
 
     public void ResetUtil()
     {
-
+        ScoreManager.Instance.Invoke("missed", 1);
         rb.isKinematic = true;
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
@@ -141,7 +144,8 @@ public class NormalBall : MonoBehaviour
         rb.isKinematic = false;
         ballThrown = false;
         ballReachedTop = false;
-        missCount = throwCount - hitCount;
+        
+  
     }
 
     protected virtual void RotateVel()

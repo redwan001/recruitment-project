@@ -17,9 +17,10 @@ public class gamemanager : MonoBehaviour
             Application.Quit();
 
 
-        if (FindObjectOfType<NormalBall>().missCount >= 5 )
+        if (ScoreManager.Instance.missing >= 5 )
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            NormalBall.missCount = 0;
         }
     }
 }
